@@ -66,9 +66,9 @@ class main_class():
 
         self.b3 = Button(self.window, text="Generate Multi QR", command=self.create_multi_qr_sub)
         self.b3.grid(row=21, column=3)
-        self.b2 = Button(self.window, text="Choose an excel(.xlsx) file", command=self.create_multi_qr)
+        self.b2 = Button(self.window, text="Choose an excel file", command=self.create_multi_qr)
         self.b2.grid(row=17, rowspan=1, column=3)
-        self.l7 = Label(self.window, text="Note!: In column-A place redirect url ex: https://www.google.com/\n column-B name of the image ex: myqrimg")
+        self.l7 = Label(self.window, text="Note!: In column-A place redirect url ex: https://www.google.com/\n column-B name of the image ex: myqrimg\n check demofile.xlsx")
         self.l7.grid(row=18, rowspan=1, column=3)
 
         self.b1 = Button(self.window, text='Generate QR', command=self.create_qr)
@@ -84,7 +84,7 @@ class main_class():
             if '.csv' not in self.e2.get():
                 csv_file = open(self.e2.get() + '.csv', 'w')
                 csv_writer = csv.writer(csv_file)
-                csv_writer.writerow(['A', 'B', 'RedirectURL(A+B)'])
+                csv_writer.writerow(['A(actual url)', 'B(nanoids)', 'Redirect URL(A+B)'])
                 for result in range(0, int(self.v1.get())):
                     regex = re.compile('[-_]')
                     result = str(generate(size=12))
